@@ -23,6 +23,7 @@ export default defineConfig<TestOptions>({
                 "@argos-ci/playwright/reporter",
                 {
                   uploadToArgos: !!process.env.CI,
+                  token: "argos_84579a166e9660957df57697f37042548c",
                 },
               ],
 
