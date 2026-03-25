@@ -17,6 +17,11 @@ jobs:
       run: npm ci --force
     - name: Install Playwright Browsers
       run: npx playwright install --with-deps --force
+    - name: Create .env file
+      run: |
+        echo "URL=${{ secrets.URL }}" >> .env
+        echo "USERNAME=${{ secrets.USERNAME }}" >> .env
+        echo "PASSWORD=${{ secrets.PASSWORD }}" >> .env
     - name: Run Playwright tests
       run: npm run testUsePageObjects-chrome
     - uses: actions/upload-artifact@v4
