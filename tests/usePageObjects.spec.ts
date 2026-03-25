@@ -1,6 +1,7 @@
 import {test} from '@playwright/test';
 import { PageManager } from '../page-objects/pageManager';
 import {faker} from '@faker-js/faker'
+import { argosScreenshot } from "@argos-ci/playwright";
 
 
 
@@ -12,8 +13,10 @@ test('navigate to forms page', async ({page}) => {
     const pm = new PageManager(page)
     await pm.navigateTo().formLayoutsPage();
     await pm.navigateTo().smartTablePage();
+    await argosScreenshot(page, "smart table page");
     await pm.navigateTo().datePickerPage();
     await pm.navigateTo().toolTipPage();
+    await argosScreenshot(page, "tool tip page");
 })
 
 test('parametrized methods @smoke', async({page}) => {
